@@ -12,6 +12,10 @@ const reducer = (state, action) => {
     case "CREATE":
       newState = [action.data, ...state];
       break;
+    case "DELETE":
+      newState = state.filter((it) => it.Id !== action.targetId);
+      console.log(newState);
+      break;
     default:
       return state;
   }
@@ -29,13 +33,13 @@ const App = () => {
 
   useEffect(() => {
     const localData = localStorage.getItem("contents");
-    const contentList = JSON.parse(localData);
     if (localData) {
+      const contentList = JSON.parse(localData);
       dispatch({ type: "INIT", data: contentList });
     }
   }, []);
 
-  const dataId = useRef(3);
+  const dataId = useRef(0);
   const onCreate = (date, content) => {
     dispatch({
       type: "CREATE",
@@ -47,9 +51,13 @@ const App = () => {
     });
     dataId.current += 1;
   };
+  const onDelete = (targetId) => {
+    dispatch({ type: "DELETE", targetId });
+  };
+
   return (
     <DataContext.Provider value={data}>
-      <DispatchContext.Provider value={{ onCreate }}>
+      <DispatchContext.Provider value={{ onCreate, onDelete }}>
         <BrowserRouter>
           <div className="App">
             <Routes>

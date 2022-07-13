@@ -2,7 +2,6 @@ import React, { useState, useRef, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 import { DispatchContext } from "../App";
-import { DataContext } from "../App.js";
 import MyButton from "../components/MyButton";
 
 const WriteNew = () => {
@@ -13,9 +12,17 @@ const WriteNew = () => {
   const [content, setContent] = useState("");
   const contentRef = useRef();
 
+  useEffect(() => {
+    contentRef.current.focus();
+  }, []);
+
   const handleSubmit = () => {
     if (content.length < 1) {
-      contentRef.current.focus();
+      onCreate(1657717563000, "testtesttest1");
+      onCreate(1657717563000, "testtesttest2");
+      onCreate(1657717563000, "testtesttest3");
+      navigate("/");
+      // contentRef.current.focus();
       return;
     } else {
       if (window.confirm("작성 완료 하셨습니까?")) {

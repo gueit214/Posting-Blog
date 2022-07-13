@@ -4,7 +4,11 @@ import { DispatchContext } from "../App";
 
 const ContentItem = ({ Id, date, content }) => {
   const { onDelete } = useContext(DispatchContext);
-  console.log(onDelete);
+  const handleDelete = () => {
+    if (window.confirm("정말 삭제하시겠습니까?")) {
+      onDelete(Id);
+    }
+  };
 
   return (
     <div className="ContentItem">
@@ -15,7 +19,7 @@ const ContentItem = ({ Id, date, content }) => {
       <div className="content">{content}</div>
       <MyButton
         text="삭제하기"
-        onClick={onDelete}
+        onClick={handleDelete}
         bootstrapClass={"btn btn-outline-danger"}
       />
     </div>
