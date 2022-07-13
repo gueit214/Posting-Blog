@@ -1,0 +1,77 @@
+// COMMON
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap");
+.inner {
+  position: relative;
+}
+
+// HEADER
+
+.Header {
+  height: 150px;
+  text-align: center;
+  .title {
+    text-align: center;
+    font-size: 40px;
+    margin-top: 30px;
+    cursor: pointer;
+    display: inline-block;
+  }
+  .btn {
+    position: absolute;
+    top: 60px;
+    right: 15%;
+    cursor: pointer;
+  }
+  font-family: "Nanum Pen Script", cursive;
+}
+
+// WriteNew
+.WriteNew {
+  text-align: center;
+  .board {
+    width: 80%;
+    min-height: 200px;
+    resize: vertical;
+    border-radius: 5px;
+    background-color: #ececec;
+    border: 1px solid #d3bfbf;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  section {
+    .btn {
+      display: block;
+      position: absolute;
+      margin: 20px;
+      right: 230px;
+    }
+  }
+}
+
+// CONTENT
+.Content {
+  display: flex;
+  justify-content: center;
+  .inner {
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .ContentItem {
+    width: 33.3%;
+    min-height: 200px;
+    margin-bottom: 10px;
+    border: 1px solid #eeeaea;
+    border-radius: 7px;
+    background-color: #ececec;
+    padding: 20px;
+    box-sizing: border-box;
+    .ID,
+    .date {
+      text-align: center;
+    }
+    div {
+      margin-bottom: 5px;
+    }
+  }
+}
