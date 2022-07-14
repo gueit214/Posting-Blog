@@ -1,35 +1,52 @@
 // COMMON
-@import url("https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Hi+Melody&family=Nanum+Pen+Script&display=swap");
+// font-family: 'Hi Melody', cursive;
+// font-family: 'Nanum Pen Script', cursive;
 .inner {
   position: relative;
+  width: 80%;
+  text-align: center;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
 }
 
 // HEADER
 
 .Header {
-  height: 150px;
-  text-align: center;
-  .title {
-    text-align: center;
-    font-size: 40px;
-    margin-top: 30px;
-    cursor: pointer;
-    display: inline-block;
+  .inner {
+    height: 170px;
+    display: flex;
+    // justify-content: center;
+    align-content: center;
+    .title {
+      font-size: 40px;
+      cursor: pointer;
+      // display: inline-block;
+      display: block;
+      width: 200px;
+      height: 100px;
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+    }
+    .btn {
+      position: absolute;
+      top: 90px;
+      right: 8%;
+      cursor: pointer;
+    }
+    font-family: "Nanum Pen Script", cursive;
   }
-  .btn {
-    position: absolute;
-    top: 60px;
-    right: 15%;
-    cursor: pointer;
-  }
-  font-family: "Nanum Pen Script", cursive;
 }
 
 // WriteNew
 .WriteNew {
   text-align: center;
   .board {
-    width: 80%;
     min-height: 200px;
     resize: vertical;
     border-radius: 5px;
@@ -59,7 +76,7 @@
   }
   .ContentItem {
     width: 32%;
-    min-height: 200px;
+    min-height: 300px;
     margin-bottom: 10px;
     margin-left: 1%;
     border: 1px solid #eeeaea;
@@ -67,12 +84,33 @@
     background-color: #ececec;
     padding: 20px;
     box-sizing: border-box;
+    position: relative;
     .ID,
     .date {
       text-align: center;
-    }
-    div {
       margin-bottom: 5px;
     }
+    .date {
+      margin-bottom: 10px;
+    }
+    .content {
+      font-family: "Hi Melody", cursive;
+      font-size: 25px;
+    }
+    .btn {
+      position: absolute;
+      right: 20px;
+      bottom: 20px;
+    }
+  }
+}
+.ContentEach {
+  .inner {
+    font-family: "Hi Melody", cursive;
+    font-size: 25px;
+    background-color: #ececec;
+    text-align: center;
+    min-height: 1000px;
+    padding: 20px;
   }
 }

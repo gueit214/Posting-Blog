@@ -1,6 +1,7 @@
 import React, { useEffect, useReducer, useRef } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.scss";
+import ContentView from "./pages/ContentView";
 import Home from "./pages/Home";
 import WriteNew from "./pages/WriteNew";
 
@@ -63,6 +64,7 @@ const App = () => {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="writeNew" element={<WriteNew />} />
+              <Route path="contentview/:id" element={<ContentView />} />
             </Routes>
           </div>
         </BrowserRouter>

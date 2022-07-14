@@ -17,12 +17,8 @@ const WriteNew = () => {
   }, []);
 
   const handleSubmit = () => {
-    if (content.length < 1) {
-      onCreate(1657717563000, "testtesttest1");
-      onCreate(1657717563000, "testtesttest2");
-      onCreate(1657717563000, "testtesttest3");
-      navigate("/");
-      // contentRef.current.focus();
+    if (content.length < 5) {
+      contentRef.current.focus();
       return;
     } else {
       if (window.confirm("작성 완료 하셨습니까?")) {
