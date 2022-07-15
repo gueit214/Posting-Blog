@@ -5,16 +5,22 @@ import { useNavigate } from "react-router-dom";
 
 const ContentItem = ({ Id, date, content }) => {
   const navigate = useNavigate();
+  let notDeleteBtn = false;
 
   const { onDelete } = useContext(DispatchContext);
   const handleDelete = () => {
+    notDeleteBtn = true;
     if (window.confirm("정말 삭제하시겠습니까?")) {
       onDelete(Id);
+    } else {
+      return;
     }
   };
 
   const gotoContent = () => {
-    navigate(`/contentview/${Id}`);
+    if (!notDeleteBtn) {
+      navigate(`/contentview/${Id}`);
+    }
   };
 
   return (

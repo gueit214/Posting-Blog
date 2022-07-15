@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer, useRef } from "react";
+import React, { useEffect, useMemo, useReducer, useRef } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.scss";
 import ContentView from "./pages/ContentView";
@@ -15,7 +15,6 @@ const reducer = (state, action) => {
       break;
     case "DELETE":
       newState = state.filter((it) => it.Id !== action.targetId);
-      console.log(newState);
       break;
     default:
       return state;
@@ -36,11 +35,16 @@ const App = () => {
     const localData = localStorage.getItem("contents");
     if (localData) {
       const contentList = JSON.parse(localData);
+      if (contentList.length >= 1) {
+        // 새로고침해도 Id이어서 생성할 수 있게
+        dataId.current = parseInt(contentList[0].Id) + 1;
+      }
       dispatch({ type: "INIT", data: contentList });
     }
   }, []);
 
-  const dataId = useRef(0);
+  const dataId = useRef(1);
+  // CREATE
   const onCreate = (date, content) => {
     dispatch({
       type: "CREATE",
@@ -52,6 +56,7 @@ const App = () => {
     });
     dataId.current += 1;
   };
+  // DELETE
   const onDelete = (targetId) => {
     dispatch({ type: "DELETE", targetId });
   };

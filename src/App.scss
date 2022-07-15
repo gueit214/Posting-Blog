@@ -2,6 +2,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Hi+Melody&family=Nanum+Pen+Script&display=swap");
 // font-family: 'Hi Melody', cursive;
 // font-family: 'Nanum Pen Script', cursive;
+.App {
+  font-size: 25px;
+}
 .inner {
   position: relative;
   width: 80%;
@@ -32,6 +35,7 @@
       top: 0;
       bottom: 0;
       margin: auto;
+      font-family: "Nanum Pen Script", cursive;
     }
     .btn {
       position: absolute;
@@ -39,7 +43,6 @@
       right: 8%;
       cursor: pointer;
     }
-    font-family: "Nanum Pen Script", cursive;
   }
 }
 
@@ -47,20 +50,22 @@
 .WriteNew {
   text-align: center;
   .board {
-    min-height: 200px;
+    min-height: 500px;
+    width: 100%;
     resize: vertical;
     border-radius: 5px;
     background-color: #ececec;
     border: 1px solid #d3bfbf;
     padding: 20px;
     box-sizing: border-box;
+    font-family: "Hi Melody", cursive;
   }
   section {
     .btn {
       display: block;
       position: absolute;
-      margin: 20px;
-      right: 230px;
+      margin-top: 30px;
+      right: 30px;
     }
   }
 }
@@ -68,16 +73,16 @@
 // CONTENT
 .Content {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   .inner {
-    width: 80%;
     display: flex;
     flex-wrap: wrap;
   }
   .ContentItem {
-    width: 32%;
+    flex-grow: 1;
+    min-width: 32%;
     min-height: 300px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     margin-left: 1%;
     border: 1px solid #eeeaea;
     border-radius: 7px;
@@ -85,6 +90,11 @@
     padding: 20px;
     box-sizing: border-box;
     position: relative;
+    cursor: pointer;
+    &:hover {
+      background-color: #cac2c2ce;
+      transition: 1s;
+    }
     .ID,
     .date {
       text-align: center;
@@ -101,6 +111,7 @@
       position: absolute;
       right: 20px;
       bottom: 20px;
+      z-index: 2;
     }
   }
 }
@@ -110,7 +121,7 @@
     font-size: 25px;
     background-color: #ececec;
     text-align: center;
-    min-height: 1000px;
+    min-height: 800px;
     padding: 20px;
   }
 }
