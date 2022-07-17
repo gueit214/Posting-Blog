@@ -36,23 +36,21 @@ const WriteNew = () => {
     <div className="WriteNew">
       <Header isWriteNewPage={true} />
       <section>
-        <div className="inner">
-          <textarea
-            className="board"
-            placeholder="내용을 입력해주세요"
-            name="text"
-            onChange={(e) => {
-              setContent(e.target.value);
-            }}
-            ref={contentRef}
-            value={content}
-          />
-          <MyButton
-            onClick={handleSubmit}
-            text="작성완료"
-            bootstrapClass={"btn btn-outline-success"}
-          />
-        </div>
+        <textarea
+          className="board"
+          placeholder="내용을 입력해주세요"
+          name="text"
+          onChange={(e) => {
+            setContent(e.target.value);
+          }}
+          ref={contentRef}
+          value={content}
+        />
+        <MyButton
+          onClick={handleSubmit}
+          text="작성완료"
+          bootstrapClass={"btn btn-outline-success"}
+        />
       </section>
     </div>
   );

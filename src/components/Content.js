@@ -6,11 +6,9 @@ const Content = () => {
   const data = useContext(DataContext);
   return (
     <div className="Content">
-      <div className="inner">
-        {data.map((it) => (
-          <ContentItem key={it.Id} {...it} />
-        ))}
-      </div>
+      {data.map((it) => (
+        <ContentItem key={it.Id} {...it} />
+      ))}
     </div>
   );
 };

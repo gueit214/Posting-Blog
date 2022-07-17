@@ -25,7 +25,6 @@ const ContentItem = ({ Id, date, content }) => {
 
   return (
     <div className="ContentItem" onClick={gotoContent}>
-      <div className="ID">{Id}번째</div>
       <div className="date">
         {new Date(parseInt(date)).toLocaleDateString()}
       </div>
