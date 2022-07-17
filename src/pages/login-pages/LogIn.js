@@ -51,8 +51,8 @@ const LogIn = () => {
   const pwRef = useRef();
   return (
     <div className="LogIn">
-      <Header />
       <div className="login-wrap">
+        <Header login={true} />
         <ul className="menu-wrap">
           <li className="menu--item">
             <span className="material-symbols-outlined">login</span>ID 로그인

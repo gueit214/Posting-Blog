@@ -2,8 +2,22 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import MyButton from "./MyButton";
 
-const Header = ({ isWriteNewPage }) => {
+const Header = ({ isWriteNewPage, login }) => {
   const navigate = useNavigate();
+  if (login) {
+    return (
+      <header className="Header-login">
+        <h1
+          className="title"
+          onClick={() => {
+            navigate("/");
+          }}
+        >
+          PeterPan's Blog
+        </h1>
+      </header>
+    );
+  }
   return (
     <header className="Header">
       <h1
@@ -38,6 +52,9 @@ const Header = ({ isWriteNewPage }) => {
       />
     </header>
   );
+};
+Header.defaultProps = {
+  login: false,
 };
 
 export default Header;
