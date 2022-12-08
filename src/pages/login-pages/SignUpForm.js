@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Header from "../../components/Header";
 
 const SignUpForm = () => {
+  const navigate = useNavigate();
+
   const [inputs, setInputs] = useState({
     id: "",
     pw: "",
@@ -19,7 +22,47 @@ const SignUpForm = () => {
     });
   };
 
-  console.log(inputs);
+  const [warningText, setWarningText] = useState({
+    id: "",
+    pw: "",
+    pwCheck: "",
+  });
+
+  const handleSubmit = () => {
+    if (inputs.id.match(/\w{5,20}/g) === null) {
+      setWarningText({
+        id: "5~20자의 영문 소문자, 숫자와 특수기호(_),(-)만 사용 가능합니다.",
+        pw: "",
+        pwCheck: "",
+      });
+    } else if (inputs.pw == 3) {
+      setWarningText({
+        id: "",
+        pw: "8~16자 영문 대 소문자, 숫자, 특수문자를 사용하세요.",
+        pwCheck: "",
+      });
+    } else if (inputs.pw !== inputs.pwCheck) {
+      setWarningText({
+        id: "",
+        pw: "",
+        pwCheck: "비밀번호가 일치하지 않습니다.",
+      });
+    } else {
+      setWarningText({
+        id: "",
+        pw: "",
+        pwCheck: "",
+      });
+      if (
+        window.confirm("가입 후 아이디는 수정 불가능합니다. 가입하시겠습니까?")
+      ) {
+        localStorage.setItem("storage", JSON.stringify(inputs));
+        // console.log(JSON.parse(localStorage.getItem("storage")));
+        navigate("/");
+      }
+    }
+  };
+
   return (
     <div className="SignUpForm">
       <Header login={true} />
@@ -33,7 +76,7 @@ const SignUpForm = () => {
             onChange={handleInput}
           />
         </label>
-        <span className="warning-text">{}</span>
+        <span className="warning-text">{warningText.id}</span>
         <label>
           비밀번호
           <input
@@ -43,6 +86,7 @@ const SignUpForm = () => {
             onChange={handleInput}
           />
         </label>
+        <span className="warning-text">{warningText.pw}</span>
         <label>
           비밀번호 재확인
           <input
@@ -52,6 +96,7 @@ const SignUpForm = () => {
             onChange={handleInput}
           />
         </label>
+        <span className="warning-text">{warningText.pwCheck}</span>
         <label>
           이름
           <input />
@@ -97,6 +142,14 @@ const SignUpForm = () => {
             name="email"
             onChange={handleInput}
           />
+        </label>
+        <label>
+          <button
+            className="btn-submit btn btn-outline-success"
+            onClick={handleSubmit}
+          >
+            가입하기
+          </button>
         </label>
       </section>
     </div>

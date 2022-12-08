@@ -313,15 +313,17 @@
     right: 0;
     margin: auto;
     label {
-      margin-top: 18px;
-      cursor: pointer;
+      margin-top: 20px;
       box-sizing: content-box;
       height: 70px;
+
+      cursor: pointer;
       input,
       select {
         width: 100%;
         height: 60px;
         padding-left: 15px;
+        cursor: pointer;
       }
     }
     .birth {
@@ -336,6 +338,15 @@
       select {
         margin: 0 20px;
       }
+    }
+    .btn-submit {
+      width: 100%;
+      height: 60px;
+      font-size: 30px;
+      margin-top: 20px;
+    }
+    .warning-text {
+      margin-top: 20px;
     }
   }
 }
